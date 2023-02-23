@@ -8,8 +8,8 @@
 
 // const thirdItem=document.querySelector('#items li:nth-child(3)');
 // thirdItem.style.backgroundColor='green';
-// // const thirdListItem = document.querySelector('#items li:nth-child(3)');
-// // thirdListItem.style.backgroundColor = 'green';
+// const thirdListItem = document.querySelector('#items li:nth-child(3)');
+// thirdListItem.style.backgroundColor = 'green';
 //  const listItems=document.querySelectorAll('#items li');
 //  for(let i=0;i<listItems.length;i++)
 //  {
@@ -17,9 +17,9 @@
 //  }
 // 
 
-const newItem=document.createElement('li');
-newItem.textContent='New Item';
-document.querySelector('#items').appendChild(newItem);
+// const newItem=document.createElement('li');
+// newItem.textContent='New Item';
+// document.querySelector('#items').appendChild(newItem);
 
 
 
@@ -30,6 +30,16 @@ document.querySelector('#items').appendChild(newItem);
 
 
 //by class name
-newItem.classList.add('new-class');
-const itemsWithNewClass = document.getElementsByClassName('new-class');
-itemsWithNewClass[0].textContent = 'Edited Item';
+// newItem.classList.add('new-class');
+// const itemsWithNewClass = document.getElementsByClassName('new-class');
+// itemsWithNewClass[0].textContent = 'Edited Item';
+
+
+const listItems=document.querySelectorAll('#items li');
+listItems[1].style.color='green';
+
+var odd=document.querySelectorAll('#items li:nth-child(odd)');
+for(var i=0;i<odd.length;i++)
+{
+    odd[i].style.backgroundColor='green';
+}
