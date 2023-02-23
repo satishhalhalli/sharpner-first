@@ -1,22 +1,41 @@
 
 
-const helloWorldDiv = document.createElement('div');
-helloWorldDiv.setAttribute('id', 'hello-world');
-helloWorldDiv.setAttribute('class', 'card card-body');
+var form=document.getElementById('addForm');
+var itemList=document.getElementById('items');
+console.log('form');
+form.addEventListener('submit',addItem);
 
-helloWorldDiv.setAttribute('class', 'title');
-var newDivText=document.createTextNode('Hello world');
-helloWorldDiv.appendChild(newDivText);
+itemList.addEventListener('click',removeItem);
+
+function addItem(e){
+    e.preventDefault();
+   
+    var newItem=document.getElementById('item').value;
+    var li=document.createElement('li');
+    li.className='list-group-item';
+    li.appendChild(document.createTextNode(newItem));
+
+  
+    var deletebtn=document.createElement('button');
+    deletebtn.className='btn btn-danger btn-sm float-right delete';
+    deletebtn.appendChild(document.createTextNode('X'));
+
+   
+    var editbtn=document.createElement('button');
+    editbtn.className='btn btn-secondary btn-sm float-right edit ml-2';
+    editbtn.appendChild(document.createTextNode('Edit'));
 
 
+    li.appendChild(deletebtn);
+    li.appendChild(editbtn);
 
-var container=document.querySelector('header .container');
-var h1=document.querySelector('header h1');
-container.insertBefore(helloWorldDiv,h1);
+    itemList.appendChild(li);
+}
 
-
-const item1 = document.querySelector('#items li:first-child');
-const helloDiv = document.createElement('div');
-helloDiv.setAttribute('class', 'hello');
-helloDiv.textContent = 'Hello';
-item1.parentNode.insertBefore(helloDiv, item1);
+function removeItem(e){
+    if(e.target.classList.contains('delete'))
+    {
+          var li=e.target.parentElement;
+          itemList.removeChild(li);
+    }
+}
